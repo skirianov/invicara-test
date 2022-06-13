@@ -1,0 +1,83 @@
+{
+  "user": {
+    "id": "1",
+    "name": "John Doe",
+    "timeRemaining": 60,
+    "reservedStations": []
+  },
+  "labs": [
+    {
+      "id": "101",
+      "number": "101",
+      "workstation_ids": ["101-01", "101-02", "101-03"]
+    }
+  ],
+  "workstations": [
+    {
+      "id": "101-01",
+      "name": "001",
+      "deskNumber": 1,
+      "reservations": [
+        {
+          "from": "June 13, 2022 08:00:00",
+          "to": "June 13, 2022 08:30:00",
+          "isReserved": false
+        },
+        {
+          "from": "June 13, 2022 08:30:00",
+          "to": "June 13, 2022 09:00:00",
+          "isReserved": true
+        },
+        {
+          "from": "June 13, 2022 09:00:00",
+          "to": "June 13, 2022 09:30:00",
+          "isReserved": true
+        }
+      ]
+    },
+    {
+      "id": "101-02",
+      "name": "002",
+      "deskNumber": 2,
+      "reservations": [
+        {
+          "from": "June 13, 2022 08:00:00",
+          "to": "June 13, 2022 08:30:00",
+          "isReserved": true
+        },
+        {
+          "from": "June 13, 2022 08:30:00",
+          "to": "June 13, 2022 09:00:00",
+          "isReserved": false
+        },
+        {
+          "from": "June 13, 2022 09:00:00",
+          "to": "June 13, 2022 09:30:00",
+          "isReserved": false
+        }
+      ]
+    },
+    {
+      "id": "101-03",
+      "name": "003",
+      "deskNumber": 3,
+      "reservations": [
+        {
+          "from": "June 13, 2022 08:00:00",
+          "to": "June 13, 2022 08:30:00",
+          "isReserved": true
+        },
+        {
+          "from": "June 13, 2022 08:30:00",
+          "to": "June 13, 2022 09:00:00",
+          "isReserved": true
+        },
+        {
+          "from": "June 13, 2022 09:00:00",
+          "to": "June 13, 2022 09:30:00",
+          "isReserved": true
+        }
+      ]
+    }
+  ]
+}
