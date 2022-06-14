@@ -1,20 +1,17 @@
-import { useEffect, useState } from 'react';
 import { API_ENDPOINTS, BASE_URL } from '../constants';
 import { Lab, User } from '../types';
+import { useApi } from '../useApi';
 import { Workstation } from './Workstation';
 
 const id = '101';
 const url = `${BASE_URL}${API_ENDPOINTS.LABS_INFO}/${id}`;
 
 export const ComputerLab = ({ user, time }: { user: User; time: string }) => {
-  const [data, setData] = useState<Lab>({ id: '', number: '', workstation_ids: [] });
+  const { data: lab, isLoading, error } = useApi<Lab>(url);
 
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((resData) => setData(resData))
-      .catch((error) => console.log(error));
-  }, []);
+  if (error) {
+    console.log(error);
+  }
 
   return (
     <div
@@ -24,10 +21,14 @@ export const ComputerLab = ({ user, time }: { user: User; time: string }) => {
         padding: '24px',
       }}
     >
-      {data &&
-        data.workstation_ids.map((id: string) => (
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        lab &&
+        lab.workstation_ids.map((id: string) => (
           <Workstation id={id} user={user} key={id} time={time} />
-        ))}
+        ))
+      )}
     </div>
   );
 };
